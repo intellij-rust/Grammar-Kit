@@ -332,7 +332,7 @@ public class RuleGraphHelper {
     BnfRule result = null;
     for (BnfRule superRule : myRuleExtendsMap.keySet()) {
       Collection<BnfRule> set = myRuleExtendsMap.get(superRule);
-      if (set.contains(r1) && set.contains(r2)) {
+      if ((set.contains(r1) || r1 == superRule) && (set.contains(r2) || r2 == superRule)) {
         if (count > set.size()) {
           count = set.size();
           result = superRule;
